@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class StringRepeatTest {
-
     @ParameterizedTest
     @MethodSource("stringRepeatDataProvider")
     public void it_determines_the_count_of_a_in_a_substring(long expectedCount, long charactersToConsider, String stringToRepeat) {
