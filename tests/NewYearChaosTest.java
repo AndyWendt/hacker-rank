@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class NewYearChaosTest {
 
     @ParameterizedTest
-    @MethodSource("swapsFileDataProvider")
-    public void readBlocksFromFile(String inputFile, String outputFile) throws IOException {
+    @MethodSource("bribesDataProvider")
+    public void it_calculates_bribes_correctly(String inputFile, String outputFile) throws IOException {
         PrintStream oldOut = System.out;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream ps = new PrintStream(baos);
@@ -53,11 +53,12 @@ class NewYearChaosTest {
         return stream.iterator();
     }
 
-    static Stream<Arguments> swapsFileDataProvider() {
+    static Stream<Arguments> bribesDataProvider() {
         return Stream.of(
                 // expected, input int[]
                 Arguments.arguments("new-year-chaos/input00.txt", "new-year-chaos/output00.txt"),
                 Arguments.arguments("new-year-chaos/input01.txt", "new-year-chaos/output01.txt"),
+                Arguments.arguments("new-year-chaos/input05.txt", "new-year-chaos/output05.txt"),
                 Arguments.arguments("new-year-chaos/input11.txt", "new-year-chaos/output11.txt")
         );
     }
