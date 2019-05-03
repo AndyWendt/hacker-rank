@@ -38,7 +38,7 @@ class NewYearChaosTest {
 
             String expected = outputIterator.next();
             String result = baos.toString();
-            assertEquals(expected, result);
+            assertEquals(expected, result.replaceAll("\\r|\\n", ""));
             baos.reset();
         }
 
@@ -59,6 +59,7 @@ class NewYearChaosTest {
                 Arguments.arguments("new-year-chaos/input00.txt", "new-year-chaos/output00.txt"),
                 Arguments.arguments("new-year-chaos/input01.txt", "new-year-chaos/output01.txt"),
                 Arguments.arguments("new-year-chaos/input05.txt", "new-year-chaos/output05.txt"),
+                Arguments.arguments("new-year-chaos/input09.txt", "new-year-chaos/output09.txt"),
                 Arguments.arguments("new-year-chaos/input11.txt", "new-year-chaos/output11.txt")
         );
     }
