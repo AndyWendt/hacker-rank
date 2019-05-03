@@ -47,7 +47,7 @@ class MinimumSwapsTest {
     }
 
     private int[] readBlocksFromFile(String file) throws IOException {
-        URL url = getClass().getResource("data/" + file);
+        URL url = getClass().getResource("data/minimum-swaps" + file);
         Path path = Paths.get(url.getPath());
         Stream<String> stream = Files.lines(path);
         Iterator<String> iterator = stream.iterator();
