@@ -41,10 +41,12 @@ public class NewYearChaos {
                 continue;
             }
 
-            int currentForwardIndex = nextIndex;
+            int currentForwardIndex = i;
 
             // process forward nodes since currentValue doesn't equal
             while (true) {
+                currentValue = q[i];
+                currentCorrectIndex = (currentValue - 1);
                 int currentForwardValue = q[currentForwardIndex];
                 int correctCurrentForwardIndex = (currentForwardValue - 1);
                 int nextForwardIndex = currentForwardIndex + 1;
@@ -55,12 +57,12 @@ public class NewYearChaos {
                     return;
                 }
 
-                if (correctCurrentForwardIndex == currentForwardIndex) {
+                if (currentCorrectIndex == i) {
                     break;
                 }
 
                 if (nextForwardIndex >= q.length) {
-                    currentForwardIndex = nextIndex;
+                    currentForwardIndex = i;
                     continue;
                 }
 
@@ -79,26 +81,9 @@ public class NewYearChaos {
                     continue;
                 }
 
-                currentForwardIndex = nextIndex;
+                currentForwardIndex = i;
                 continue;
             }
-
-
-
-            // process each node individually
-            // look ahead as needed
-
-//            // look for violation: too many bribes, going the wrong way
-//            if (distance > 2) {
-//                System.out.print("Too chaotic");
-//                return;
-//            }
-//
-//            // ... unfortunately distance != swaps
-//            // change the input array back to the original to check the swaps
-//            if (distance > 0) {
-//                swaps += distance;
-//            }
         }
 
         System.out.print(swaps);
